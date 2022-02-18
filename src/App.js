@@ -1,5 +1,7 @@
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+// import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
+// import SourceEditing from '@ckeditor/ckeditor5-source-editing/src/sourceediting';
 
 import './App.css';
 
@@ -27,6 +29,17 @@ function App() {
           }}
         />
       </div>
+      {/* <div className='editor-title'>플러그인 추가</div>
+      <div className='editor'>
+        <CKEditor
+          editor={ClassicEditor}
+          data="<p>Hello from CKEditor 5!</p>"
+          config={ {
+            plugins: [ SourceEditing ],
+            toolbar: [ 'sourceEditing' ]
+        } }
+        />
+      </div> */}
     </div>
   );
 }
