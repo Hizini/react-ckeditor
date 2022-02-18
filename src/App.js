@@ -1,47 +1,26 @@
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-// import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
-// import SourceEditing from '@ckeditor/ckeditor5-source-editing/src/sourceediting';
-
+// import { CKEditor } from '@ckeditor/ckeditor5-react';
+// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import React, { Component } from 'react'
 import './App.css';
 
-function App() {
-  return (
-    <div className="editor-container">
-      <div className='editor-title'>기본</div>
-      <div className='editor'>
-        <CKEditor
-          editor={ClassicEditor}
-          data="<p>Hello from CKEditor 5!</p>"
-          onReady={editor => {
-            // You can store the "editor" and use when it is needed.
-            console.log('Editor is ready to use!', editor);
-          }}
-          onChange={(event, editor) => {
-            const data = editor.getData();
-            console.log({ event, editor, data });
-          }}
-          onBlur={(event, editor) => {
-            console.log('Blur.', editor);
-          }}
-          onFocus={(event, editor) => {
-            console.log('Focus.', editor);
-          }}
-        />
+class App extends Component {
+  constructor(props) {
+    super(props)
+    let editor
+  }
+  
+  async componentDidMount() {
+    const { ClassicEditor } = window
+    this.editor = await ClassicEditor.create( document.querySelector( '#editor' ) )
+  }
+
+  render() {
+    return (
+      <div className="editor-container">
+        <div className='editor-title'>드디어..</div>
       </div>
-      {/* <div className='editor-title'>플러그인 추가</div>
-      <div className='editor'>
-        <CKEditor
-          editor={ClassicEditor}
-          data="<p>Hello from CKEditor 5!</p>"
-          config={ {
-            plugins: [ SourceEditing ],
-            toolbar: [ 'sourceEditing' ]
-        } }
-        />
-      </div> */}
-    </div>
-  );
+    ); 
+  }
 }
 
 export default App;
