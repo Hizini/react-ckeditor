@@ -5,29 +5,34 @@ import './App.css';
 
 const { ClassicEditor } = window
 class App extends Component {
+  // 멤버변수 선언
+  editor
+  editorDivRef
+
   constructor(props) {
     super(props)
 
-    let editor
+    // 멤버변수 선언 (다른 방식)
+    // this.editor = undefined
   }
-  
-  async componentDidMount() {
-    this.editor = await ClassicEditor.create( document.querySelector( '#editor' ) )
 
-    document.querySelector( '#submit' ).addEventListener( 'click', () => { 
-      const editorData = this.editor.getData() 
-      console.log(this.editor.getData())
-    } )
+  async componentDidMount() {
+    this.editor = await ClassicEditor.create(this.editorDivRef)
+  }
+
+  handleClickSubmit = () => {
+    const editorData = this.editor.getData()
+    console.log(this.editor.getData())
   }
 
   render() {
     return (
       <div className="editor-container">
         <div className='editor-title'>드디어..</div>
-        <div id='editor'></div>
-        <button id="submit">Submit</button>
+        <div id='editor' ref={ref => this.editorDivRef = ref}></div>
+        <button id="submit" onClick={this.handleClickSubmit}>Submit</button>
       </div>
-    ); 
+    );
   }
 }
 
