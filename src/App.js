@@ -22,7 +22,16 @@ class App extends Component {
 
   handleClickSubmit = () => {
     const editorData = this.editor.getData()
-    console.log(this.editor.getData())
+    // console.log(editorData) 
+
+    const findStartStr = "<img src=\""
+    const endStartStr= "\"></figure>"
+    const startIndex = editorData.indexOf(findStartStr) + findStartStr.length
+    const endIndex = editorData.indexOf(endStartStr)
+    const imgSrc = editorData.substring(startIndex, endIndex)
+
+    console.log(findStartStr, endStartStr, '1', startIndex, '2', endIndex)
+    console.log(imgSrc)
   }
 
   render() {
