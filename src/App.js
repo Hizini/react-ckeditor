@@ -30,7 +30,7 @@ class App extends Component {
     const endIndex = editorData.indexOf(endStartStr)
     const imgSrc = editorData.substring(startIndex, endIndex)
 
-    console.log(findStartStr, endStartStr, '1', startIndex, '2', endIndex)
+    // console.log(findStartStr, endStartStr, '1', startIndex, '2', endIndex)
     console.log(imgSrc)
   }
 
@@ -38,7 +38,9 @@ class App extends Component {
     return (
       <div className="editor-container">
         <div className='editor-title'>드디어..</div>
-        <div id='editor' ref={ref => this.editorDivRef = ref}></div>
+        <div id='editor' ref={ref => this.editorDivRef = ref}>
+          제목:
+        </div>
         <button id="submit" onClick={this.handleClickSubmit}>Submit</button>
       </div>
     );
