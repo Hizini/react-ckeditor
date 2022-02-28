@@ -39,7 +39,7 @@ class App extends Component {
       <div className="editor-container">
         <div className='editor-title'>드디어..</div>
         <div id='editor' ref={ref => this.editorDivRef = ref}>
-          제목:
+          {/* 제목: */}
         </div>
         <button id="submit" onClick={this.handleClickSubmit}>Submit</button>
       </div>

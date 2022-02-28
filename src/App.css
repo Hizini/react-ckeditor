@@ -4,7 +4,7 @@
   font-size: 25px;
 }
 
-.editor-container {
+/* .editor-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,11 +16,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .ck-content {
   height: 70vh;
-  width: 804px;
+  /* width: 804px; */
 }
 
 #submit {
